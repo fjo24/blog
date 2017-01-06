@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /*
 Route::get('articles', function () {
     echo "esta es la pagina de articulos";
@@ -38,7 +34,7 @@ echo "LA INFORMACION ES ". $inf;
 
 }); 	
 } );*/
-
+/*
 // PROBANDO RUTA CON CONTROLADOR
 
 // Prueba 1 con TestController (en esta funcion (view1) del TestController el parametro lo imprime tal cual)
@@ -77,4 +73,12 @@ Route::get('/testview', function () {
 	Route::get('ver/{id}', [
 			'uses' => 'TestController@ver',
 			'as' => 'verarticulos'
-		]);
+		]);*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::group(['prefix' => 'admin'], function(){
+	Route::resource('users','UsersController');// primer parametro nombre de la ruta y segundo el controlador que se usara
+});
