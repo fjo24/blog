@@ -93,6 +93,11 @@ return redirect()->route('admin.users.index');
      */
     public function destroy($id)
     {
-        //
+    $user = User::find($id);
+    $user -> delete();
+
+    flash('El usuario '. $user->name. ' ha sido borrado de manera exitosa!','danger')->important();
+    return redirect()->route('admin.users.index');
+
     }
 }
