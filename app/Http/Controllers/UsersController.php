@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 Use App\User;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\UserRequest; //lo agregamos para poder usarlo
 
 class UsersController extends Controller
 {
@@ -38,7 +39,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request) //cambiamos el request por el UserRequest
     {
            // dd($request->all());
             $user = new User($request->all());
