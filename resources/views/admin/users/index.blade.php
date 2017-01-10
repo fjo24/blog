@@ -2,7 +2,7 @@
 @section('title', 'Lista de usuarios')
 @section('content')
 
-<a href="{{ route('admin.users.create')}}" class="btn btn-info">Registrar nuevo usuario</a>
+<a href="{{ route('admin.users.create')}}" class="btn btn-info btn-xs pull-ri">Registrar nuevo usuario</a>
 <table class="table table-striped">
   <thead>
   	<th>ID</th>
@@ -27,7 +27,7 @@
   		</td>
   		<td>
       <a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Realmente deseas borrar el usuario?')" class="btn btn-danger glyphicon glyphicon-remove"></a>
-      <a href="" class="btn btn-warning glyphicon glyphicon-pencil"></a></td>
+      <a href=" {{ route('admin.users.edit', $user->id) }}" class="btn btn-warning glyphicon glyphicon-pencil"></a></td>
   	</tr>
   	@endforeach
   </tbody>
