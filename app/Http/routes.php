@@ -80,9 +80,15 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function(){
+
+	//ruta usuarios
 	Route::resource('users','UsersController');// primer parametro nombre de la ruta y segundo el controlador que se usara
 	Route::get('users/{id}/destroy', [
 		'uses' => 'UsersController@destroy',
 		'as'	=> 'admin.users.destroy'
 		]);
+
+	Route::resource('categories', 'CategoriesController');
+
+
 });

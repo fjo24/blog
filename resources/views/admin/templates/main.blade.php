@@ -9,6 +9,8 @@
 		<div class="container">
 			@include('admin.templates.partials.nav')
 			@include('flash::message')
+			@include('admin.templates.partials.errors')
+
 
 			<div class="panel panel-info">
 				<div class=panel-heading>
