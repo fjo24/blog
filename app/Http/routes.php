@@ -79,7 +79,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	//ruta usuarios
 	Route::resource('users','UsersController');// primer parametro nombre de la ruta y segundo el controlador que se usara

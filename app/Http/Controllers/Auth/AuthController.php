@@ -30,15 +30,6 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
-    }
 
     /**
      * Get a validator for an incoming registration request.
@@ -74,5 +65,4 @@ class AuthController extends Controller
     {
         return view('admin.auth.login');
     }
-
 }
