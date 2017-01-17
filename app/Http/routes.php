@@ -79,7 +79,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){ //se agrego el middleware para que deba autenticarse para acceder a las rutas siguientes
 
 	//ruta usuarios
 	Route::resource('users','UsersController');// primer parametro nombre de la ruta y segundo el controlador que se usara
@@ -92,6 +92,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::get('categories/{id}/destroy', [
 		'uses' => 'CategoriesController@destroy',
 		'as'	=> 'admin.categories.destroy'
+		]);
+	Route::resource('tags', 'TagsController');
+	Route::get('tags/{id}/destroy', [
+		'uses' => 'TagsController@destroy',
+		'as'	=> 'admin.tags.destroy'
 		]);
 
 });
