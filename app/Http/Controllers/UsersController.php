@@ -17,13 +17,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::orderBy('id', 'ASC')->paginate(5);
-        return view('admin.users.index')->with('users', $users);
-
+      $users= User::search($request)->orderBy('id', 'ASC')->paginate(8);
+      return view('admin.users.index')->with('users', $users);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -109,4 +107,5 @@ return redirect()->route('admin.users.index');
     return redirect()->route('admin.users.index');
 
     }
+
 }

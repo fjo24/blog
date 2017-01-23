@@ -1,8 +1,20 @@
 @extends('admin.templates.main')
-@section('title', 'Categorias')
+@section('title', 'Tags')
 @section('content')
 
 <a href="{{ route('admin.tags.create') }}"  class="btn btn-danger">Crear nuevo tag</a>
+
+<!-- BUSCADOR DE TAGS -->
+{!! Form::open(['route' => 'admin.tags.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
+<div class="input-group">
+	{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'buscar tag...', 'aria-describedby' => 'search'])  !!}
+  <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+</div>
+
+</div>
+{!! Form::close() !!}
+<!-- FIN DEL BUSCADOR -->
+<hr>
 
 	<table class="table table-striped">
 	
@@ -24,10 +36,8 @@
 			</tr>
 			@endforeach
 		</tbody>
-
 	</table>
 <div class="text-center"> 
 	{!! $tags->render() !!}
 </div>
-
 @endsection

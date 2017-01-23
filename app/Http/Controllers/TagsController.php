@@ -41,7 +41,8 @@ class TagsController extends Controller
             $tag = new Tag($request->all());
             $tag->save();   
     Flash::success("Se ha registrado el tag ".$tag->name." de manera exitosa!")->important();
-return redirect()->route('admin.tags.index');     }
+return redirect()->route('admin.tags.index');     
+ }
 
     /**
      * Display the specified resource.
