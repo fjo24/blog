@@ -13,7 +13,7 @@
 		{!!	Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre de la categoria', 'required']) !!}
 	</div>
 
-	<div class="for">
+	<div class="form-group">
 		{!! Form::submit('Registrar', ['class'=> 'btn btn-primary']) !!}
 	</div>
 
