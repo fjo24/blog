@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/admin/users">Usuarios</a></li>
         <li><a href="{{route ('admin.categories.index')}}">Categorias</a></li>
-        <li><a href="#">Articulos</a></li>
+        <li><a href="{{route ('admin.articles.index')}}">Articulos</a></li>
         <li><a href="#">Imagenes</a></li>
         <li><a href="{{route ('admin.tags.index')}}">Tags</a></li>
       </ul>

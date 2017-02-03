@@ -15,12 +15,12 @@
 
 	<div class="form-group">
 		{!! Form::label('category_id', 'Categoria') !!}
-		{!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una categoria', 'required']) !!} <!--funcion input de tipo select-->
+		{!! Form::select('category_id', $categories, null, ['class' => 'form-control select-category', 'required']) !!} <!--funcion input de tipo select-->
 	</div>
 
 	<div class="form-group">
 		{!!Form::label('content', 'Contenido') !!}
-		{!!Form::textarea('content', null, ['class'=>'form-control'])!!} 
+		{!!Form::textarea('content', null, ['class'=>'form-control textarea-content'])!!} 
 		<!--CREAMOS UN TEXTAREA. primer parametro es el contenido, luego un valor por defecto que preferimos sea nulo y la clase para darle un orden adecuado-->
 	</div>
 
@@ -32,7 +32,7 @@
 
 	<div class="form-group">
 		{!! Form::label('tags', 'Tag') !!}
-		{!! Form::select('tags[]', $tags, null, ['class' => 'form-control', 'multiple', 'required']) !!} <!--funcion input de tipo select; tambien se le agregan los dos corchetes al lado de tags para indicar que se esta enviando un arrays o arreglo, es decir varios datos-->
+		{!! Form::select('tags[]', $tags, null, ['class' => 'form-control select-tag', 'multiple', 'required']) !!} <!--funcion input de tipo select; tambien se le agregan los dos corchetes al lado de tags para indicar que se esta enviando un arrays o arreglo, es decir varios datos-->
 	</div>
 	<div class="form-group">
 		{!! Form::submit('Registrar', ['class'=> 'btn btn-primary']) !!}
@@ -41,3 +41,23 @@
 {!! Form::close() !!}
 
 @endsection 
+
+@section('js')
+
+	<script> 
+			$('.select-tag').chosen({
+				placeholder_text_multiple:"Seleccione un maximo de 3 tags",
+				max_selected_options	: 3,
+				no_results_text			: "TAG NO ENCONTRADO"
+							});
+			$('.select-category').chosen({
+				placeholder_text_single:"Seleccione una categoria"
+							});
+
+			//plugin trumbowig
+			$('.textarea-content').trumbowyg();
+
+
+	</script>
+
+@endsection

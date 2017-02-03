@@ -10,6 +10,7 @@ use App\Tag; //debemos llamar a los modelos que vamos a utilizar
 use App\Article; //se debe agregar la clase article
 use App\Image; //se debe agregar la clase images
 use Laracasts\Flash\Flash;
+use App\Http\Requests\ArticleRequest;
 
 
 class ArticlesController extends Controller
@@ -33,7 +34,7 @@ class ArticlesController extends Controller
     ->with('categories', $categories)->with('tags', $tags);//retorno vista correspondiente y recibo los datos de las categorias y los tags    
     }
 
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
 
         //dd($request->tags); //prueba imprimiendo la lista de tags
