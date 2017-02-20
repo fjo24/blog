@@ -111,7 +111,14 @@ return redirect()->route('admin.articles.index');
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->fill($request->all());
+        $article->save();
+
+        $article->tags()->sync($request->tags);// este codigo hara que se actualizen los datos en la tabla tag (tabla pivote)
+
+        flash('El articulo '. $article->name. ' ha sido editado con exito!!', 'success')->important();
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -122,6 +129,8 @@ return redirect()->route('admin.articles.index');
      */
     public function destroy($id)
     {
-        //
-    }
+        $article = Article::find($id);
+        $article->delete();
+        flash('El articulo '. $article->name. ' ha sido borrado de manera exitosa!','danger')->important();
+        return redirect()->route('admin.articles.index');    }
 }

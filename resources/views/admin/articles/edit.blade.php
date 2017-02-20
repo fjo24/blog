@@ -6,7 +6,7 @@
 @section('content')
 
 
-{!! Form::open(['route' => 'admin.articles.store', 'method' => 'POST', 'files' => true]) !!}
+{!! Form::open(['route' => ['admin.articles.update', $article], 'method' => 'PUT', 'files' => true]) !!}
 
 	<div class="form-group"> 
 		{!!	Form::label('title', 'Titulo') !!}
@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::submit('Registrar', ['class'=> 'btn btn-primary']) !!}
+		{!! Form::submit('Actualizar', ['class'=> 'btn btn-primary']) !!}
 	</div>
 
 {!! Form::close() !!}

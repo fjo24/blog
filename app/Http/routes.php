@@ -98,7 +98,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){ //se agr
 		'uses' => 'TagsController@destroy',
 		'as'	=> 'admin.tags.destroy'
 		]);
+
 		 Route::resource('articles', 'ArticlesController');//Este es el codigo para la ruta de los articulos
+		 	Route::get('articles/{id}/destroy', [
+		'uses' => 'ArticlesController@destroy',
+		'as'	=> 'admin.articles.destroy'
+		]);
 
 });
 
