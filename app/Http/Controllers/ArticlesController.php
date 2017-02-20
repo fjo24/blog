@@ -22,8 +22,16 @@ class ArticlesController extends Controller
      */
     public function index()
     {
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        $articles -> each(function($articles){
+            $articles->category;
+            $articles->user;
+        });
 
-        return view('admin.articles.index');
+      //  dd($articles);
+
+        return view('admin.articles.index')->with('articles', $articles);
+
     }
     public function create()
     {
@@ -81,7 +89,17 @@ return redirect()->route('admin.articles.index');
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        $article->category;
+        $categories = Category::orderBy('name', 'DESC')->lists('name', 'id');
+        $tags = Tag::orderBy('name', 'DESC')->lists('name', 'id');
+
+        $my_tags = $article->tags->lists('id')->toArray();
+        return view('admin.articles.edit')
+        ->with('categories', $categories)
+        ->with('article', $article)
+        ->with('tags', $tags)
+        ->with('my_tags', $my_tags);
     }
 
     /**
