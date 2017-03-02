@@ -104,15 +104,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){ //se agr
 		'uses' => 'ArticlesController@destroy',
 		'as'	=> 'admin.articlesp.destroy'
 		]);
-
-});
-
-	Route::get('images', [
+		 	Route::get('images', [
 
 		'uses' 	=> 	'ImagesController@index',
 		'as'	=>	'admin.images.index'
 
 		]);
+
+
+});
+
 
 // rutas para autenticación
 

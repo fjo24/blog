@@ -14,6 +14,9 @@ class ImagesController extends Controller
     {
 
         $images = Image::all();
+        $images->each(function($images){
+        	$images->article;	
+        });
 		return view('admin.images.index')
 		->with('images', $images);
 	}
