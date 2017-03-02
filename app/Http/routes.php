@@ -102,10 +102,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){ //se agr
 		 Route::resource('articles', 'ArticlesController');//Este es el codigo para la ruta de los articulos
 		 	Route::get('articles/{id}/destroy', [
 		'uses' => 'ArticlesController@destroy',
-		'as'	=> 'admin.articles.destroy'
+		'as'	=> 'admin.articlesp.destroy'
 		]);
 
 });
+
+	Route::get('images', [
+
+		'uses' 	=> 	'ImagesController@index',
+		'as'	=>	'admin.images.index'
+
+		]);
 
 // rutas para autenticación
 
