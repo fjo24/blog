@@ -75,11 +75,15 @@ Route::get('/testview', function () {
 			'as' => 'verarticulos'
 		]);*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'front.index', function () {
+    return view('front.index');
+}]);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){ //se agrego el middleware para que deba autenticarse para acceder a las rutas siguientes
+
+	Route::get('/', ['as' => 'admin.index', function () {
+    return view('admin.index');
+}]);
 
 	//ruta usuarios
 	Route::resource('users','UsersController');// primer parametro nombre de la ruta y segundo el controlador que se usara
