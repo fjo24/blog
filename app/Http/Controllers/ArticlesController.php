@@ -15,11 +15,7 @@ use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $articles = Article::orderBy('id', 'DESC')->paginate(5);
@@ -81,12 +77,6 @@ return redirect()->route('admin.articles.index');
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $article = Article::find($id);
@@ -102,13 +92,7 @@ return redirect()->route('admin.articles.index');
         ->with('my_tags', $my_tags);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $article = Article::find($id);
@@ -117,20 +101,14 @@ return redirect()->route('admin.articles.index');
 
         $article->tags()->sync($request->tags);// este codigo hara que se actualizen los datos en la tabla tag (tabla pivote)
 
-        flash('El articulo '. $article->name. ' ha sido editado con exito!!', 'success')->important();
+        flash('El articulo '. $article->title. ' ha sido editado con exito!!', 'success')->important();
         return redirect()->route('admin.articles.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $article = Article::find($id);
         $article->delete();
-        flash('El articulo '. $article->name. ' ha sido borrado de manera exitosa!','danger')->important();
+        flash('El articulo '. $article->title. ' ha sido borrado de manera exitosa!','danger')->important();
         return redirect()->route('admin.articles.index');    }
 }

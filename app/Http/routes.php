@@ -75,9 +75,14 @@ Route::get('/testview', function () {
 			'as' => 'verarticulos'
 		]);*/
 
-Route::get('/', ['as' => 'front.index', function () {
-    return view('front.index');
-}]);
+//RUTAS DEL FRONT
+
+Route::get('/', [
+	'as' => 'front.index', 
+	'uses' => 'FrontController@index'
+	]);
+
+//RUTAS DEL PANEL DE ADMINISTRACION
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){ //se agrego el middleware para que deba autenticarse para acceder a las rutas siguientes
 
@@ -106,7 +111,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){ //se agr
 		 Route::resource('articles', 'ArticlesController');//Este es el codigo para la ruta de los articulos
 		 	Route::get('articles/{id}/destroy', [
 		'uses' => 'ArticlesController@destroy',
-		'as'	=> 'admin.articlesp.destroy'
+		'as'	=> 'admin.articles.destroy'
 		]);
 		 	Route::get('images', [
 

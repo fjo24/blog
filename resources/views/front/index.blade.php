@@ -12,37 +12,32 @@
 <div class="row">
     <div class="col-md-8">
         <div class="row">    
+            
+        @foreach($articles as $article)
             <div class="col-md-6">
                 <div class="thumbnail">
-              <img src="{{ asset('images/articles/blogdefran_1489521286.jpg') }}" alt="...">
+                @foreach($article->images as $image)
+              <img src="{{ asset('images/articles/' . $image->name) }}" alt="...">
+                @endforeach
                     <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>...</p>
+                            <h3>{{ $article->title }}</h3>
+                            <p>{!! $article->content !!}</p>
                                 <hr>
-                        <i class="fa fa-folder-open-o"></i> <a href="">Category</a>
+                        <i class="fa fa-folder-open-o"></i> <a href="">{{ $article->category->name }}</a>
                         <div class="pull-right">
                             <i class="fa fa-clock-o"></i>Hace 3 minutos
                         </div>
                     </div>
                 </div>
             </div>
+        @endforeach
 
-            <div class="col-md-6">
-                <div class="thumbnail">
-              <img src="{{ asset('images/articles/blogdefran_1489521286.jpg') }}" alt="...">
-                    <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>...</p>
-                                <hr>
-                        <i class="fa fa-folder-open-o"></i> <a href="">Category</a>
-                        <div class="pull-right">
-                            <i class="fa fa-clock-o"></i>Hace 3 minutos
-                        </div>
-                    </div>
-                </div>
-            </div>   
         </div>
+                        <div class="text-center">{!! $articles->render() !!}</div>
+
     </div>
+
+
 
 
     <div class="row">    
@@ -57,6 +52,8 @@
                     </div>
         </div>
     </div>
+
+
                 
 </div>
 

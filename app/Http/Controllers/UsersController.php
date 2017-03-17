@@ -12,32 +12,19 @@ use App\Http\Requests\UserRequest; //lo agregamos para poder usarlo
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
       $users= User::search($request)->orderBy('id', 'ASC')->paginate(8);
       return view('admin.users.index')->with('users', $users);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('admin.users.create');
             }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(UserRequest $request) //cambiamos el request por el UserRequest
     {
            // dd($request->all());
@@ -51,23 +38,12 @@ return redirect()->route('admin.users.index');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //dd($id);
@@ -75,13 +51,7 @@ return redirect()->route('admin.users.index');
         return view('admin.users.edit')->with('user', $user);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -92,12 +62,7 @@ return redirect()->route('admin.users.index');
         return redirect()->route('admin.users.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
     $user = User::find($id);
