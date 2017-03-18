@@ -1,4 +1,4 @@
-        <?php
+<?php
         
         namespace App\Http\Controllers;
         
@@ -17,7 +17,8 @@
         
         public function index(Request $request)
         {
-        $articles = Article::orderBy('id', 'DESC')->paginate(4);
+        $articles = Article::orderBy('id', 'DESC')->
+paginate(4);
         $articles->each(function($articles){
         $articles->category;
         $articles->images;
