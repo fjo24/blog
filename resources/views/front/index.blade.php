@@ -3,6 +3,7 @@
 @section('title', 'Pagina principal')
 
 @section('content')
+
 <h1>
     Ingreso de usuario
 </h1>
@@ -51,23 +52,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Panel title
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                Panel content
-                            </div>
-                        </div>
-                    </div>
+                    @include ('front.partials.aside')
                 </div>
             </div>
             @endsection
-
-            
         </br>
     </br>
 </br>
