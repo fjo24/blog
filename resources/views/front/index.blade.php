@@ -3,7 +3,6 @@
 @section('title', 'Pagina principal')
 
 @section('content')
-
 <h1>
     Ingreso de usuario
 </h1>
