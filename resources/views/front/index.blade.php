@@ -23,7 +23,9 @@
                                     @endforeach
                                     <div class="caption">
                                         <h3>
-                                            {{ $article->title }}
+                                            <a href="{{ route('front.view.article', $article->slug  ) }}">
+                                                {{ $article->title }}
+                                            </a>
                                         </h3>
                                         <p>
                                             {!! $article->content !!}
@@ -31,8 +33,8 @@
                                         <hr>
                                             <i class="fa fa-folder-open-o">
                                             </i>
-                                            <a href="">
-                                                {{ $article->category->name }}
+                                            <a href="{{ route('front.search.category', $article->category->name) }}">
+                                                {{$article->category->name}}
                                             </a>
                                             <div class="pull-right">
                                                 <i class="fa fa-clock-o">

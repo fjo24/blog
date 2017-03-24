@@ -1,4 +1,7 @@
-body{
+.body{
 background-color: blue ;
 }
 
+.fondo-articulo{
+    background-color: #5DF7D6;
+}

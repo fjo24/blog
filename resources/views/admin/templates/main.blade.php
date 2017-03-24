@@ -6,6 +6,7 @@
         </title>
         <link href="{{ asset ('plugins/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
             <link href="{{ asset ('plugins/chosen/chosen.css') }}" rel="stylesheet">
+                <link rel="stylesheet" href="{{ asset('css/general.css')}}">
                 <link href="{{ asset ('plugins/trumbowyg/ui/trumbowyg.min.css') }}" rel="stylesheet">
                 </link>
             </link>

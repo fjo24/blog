@@ -12,7 +12,9 @@
                     <span class="badge">
                         {{ $category->articles->count()}}
                     </span>
-                    {{$category->name}}
+                    <a href="{{ route('front.search.category', $category->name) }}">
+                        {{$category->name}}
+                    </a>
                 </li>
                 @endforeach
             </ul>
